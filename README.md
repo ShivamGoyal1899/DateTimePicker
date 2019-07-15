@@ -17,18 +17,18 @@ In this tutorial, you’ll build a mobile app featuring a DateTime Picker using 
 This tutorial focuses on adding a DateTime Picker to a Flutter app. Non-relevant concepts and code blocks are glossed over and are provided for you to simply copy and paste.
 
 ### Github Repository | @ShivamGoyal1899
-[**ShivamGoyal1899/DateTimePicker**
+[ ShivamGoyal1899/DateTimePicker 
 *An app featuring DateTimePicker using the Flutter SDK - ShivamGoyal1899/DateTimePicker*github.com](https://github.com/ShivamGoyal1899/DateTimePicker)
 
 ### Package Used | flutter_datetime_picker
-[**flutter_datetime_picker | Flutter Package**
+[ flutter_datetime_picker | Flutter Package 
 *A date time picker for flutter, you can choose date / time / date&time in English Dutch and Chinese, and you can also…*pub.dev](https://pub.dev/packages/flutter_datetime_picker)
 
 ## Setting up Flutter on your machine
 
 The detailed steps to install Flutter on your personal computer & getting started with Flutter is available at the following blog
 
-[**How to install Flutter and create a simple Flutter app**
+[ How to install Flutter and create a simple Flutter app 
 *Learn what is Flutter and how to set it up on Windows and Mac systems and get started with Flutter apps*medium.com](https://medium.com/enappd/install-flutter-on-windows-and-mac-1fd1dde453ba)
 
 ## Coding the component
@@ -38,15 +38,15 @@ The detailed steps to install Flutter on your personal computer & getting starte
 The basic format of a DateTime Picker looks like the one below:
 
     FlatButton(
-        **onPressed**: () {
+         onPressed : () {
             DatePicker.showDatePicker(context,
-              **showTitleActions**: true,
-              **minTime**: DateTime(2000, 1, 1)
-              **maxTime**: DateTime(2022, 12, 31),
-              **onChanged**: (date) {print('change $date');},
-              **onConfirm**: (date) {print('confirm $date');},
-              **currentTime**: DateTime.now(), locale: LocaleType.en);},
-        **child**: Text('Show DateTime Picker',)
+               showTitleActions : true,
+               minTime : DateTime(2000, 1, 1)
+               maxTime : DateTime(2022, 12, 31),
+               onChanged : (date) {print('change $date');},
+               onConfirm : (date) {print('confirm $date');},
+               currentTime : DateTime.now(), locale: LocaleType.en);},
+         child : Text('Show DateTime Picker',)
     );
 
 ### Adding DateTime Picker plugin as a dependency
@@ -57,9 +57,9 @@ Adding additional capability to a Flutter app is easy using [Pub packages](https
 
 ### Importing plugin to main.dart file
 
-Import **flutter_datetime_picker** dependency to your main.dart file by adding the following line at the starting of the file:
+Import  flutter_datetime_picker  dependency to your main.dart file by adding the following line at the starting of the file:
 
-    **import** 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+     import  'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 ### Putting Code in action
 
@@ -67,7 +67,7 @@ Amend your main.dart file as per the following code:
 
 <iframe src="https://medium.com/media/8a842e663ded02fa79e9a68d06eab584" frameborder=0></iframe>
 
-### **Building & running the application**
+###  Building & running the application 
 
 * Connect your Emulator or physical Android device to test the application.
 
@@ -90,7 +90,7 @@ There are three functional variations of the plugin available as follows:
 
 ### Language Options
 
-There are various language options available to implement the plugin for international use. For changing the language of the component amend the following with preferred **LocaleType**.
+There are various language options available to implement the plugin for international use. For changing the language of the component amend the following with preferred  LocaleType .
 
     locale: LocaleType.en
 
@@ -138,72 +138,72 @@ If you want to customize your own style of date time picker, there is a class ca
 
 How to customize your own picker model:
 
-**class CustomPicker extends CommonPickerModel** {
+ class CustomPicker extends CommonPickerModel  {
       String digits(int value, int length) {
-        **return** '$value'.padLeft(length, "0");
+         return  '$value'.padLeft(length, "0");
       }
 
-    CustomPicker({DateTime currentTime, LocaleType locale}) : **super**(locale: locale) {
-        **this**.currentTime = currentTime ?? DateTime.now();
-        **this**.setLeftIndex(**this**.currentTime.hour);
-        **this**.setMiddleIndex(**this**.currentTime.minute);
-        **this**.setRightIndex(**this**.currentTime.second);
+    CustomPicker({DateTime currentTime, LocaleType locale}) :  super (locale: locale) {
+         this .currentTime = currentTime ?? DateTime.now();
+         this .setLeftIndex( this .currentTime.hour);
+         this .setMiddleIndex( this .currentTime.minute);
+         this .setRightIndex( this .currentTime.second);
       }
 
-    **@override**
+     @override 
       String leftStringAtIndex(int index) {
-        **if** (index >= 0 && index < 24) {
-          **return this**.digits(index, 2);
-        } **else** {
-          **return** null;
+         if  (index >= 0 && index < 24) {
+           return this .digits(index, 2);
+        }  else  {
+           return  null;
         }
       }
 
-    **@override**
+     @override 
       String middleStringAtIndex(int index) {
-        **if** (index >= 0 && index < 60) {
-          **return this**.digits(index, 2);
-        } **else** {
-          **return** null;
+         if  (index >= 0 && index < 60) {
+           return this .digits(index, 2);
+        }  else  {
+           return  null;
         }
       }
 
-    **@override**
+     @override 
       String rightStringAtIndex(int index) {
-        **if** (index >= 0 && index < 60) {
-          **return** this.digits(index, 2);
-        } **else** {
-          **return** null;
+         if  (index >= 0 && index < 60) {
+           return  this.digits(index, 2);
+        }  else  {
+           return  null;
         }
       }
 
-    **@override**
+     @override 
       String leftDivider() {
-        **return** "|";
+         return  "|";
       }
 
-    **@override**
+     @override 
       String rightDivider() {
-        **return** "|";
+         return  "|";
       }
 
-    **@override**
+     @override 
       List<int> layoutProportions() {
-        **return** [1, 2, 1];
+         return  [1, 2, 1];
       }
 
-    **@override**
+     @override 
       DateTime finalTime() {
-        **return** currentTime.isUtc
+         return  currentTime.isUtc
             ? DateTime.utc(currentTime.year, currentTime.month, currentTime.day,
-                **this**.currentLeftIndex(), **this**.currentMiddleIndex(), **this**.currentRightIndex())
+                 this .currentLeftIndex(),  this .currentMiddleIndex(),  this .currentRightIndex())
             : DateTime(currentTime.year, currentTime.month, currentTime.day, this.currentLeftIndex(),
-                **this**.currentMiddleIndex(), **this**.currentRightIndex());
+                 this .currentMiddleIndex(),  this .currentRightIndex());
       }
     }
 
 ## Enappd Store | Premium App Starters
-[**Enappd | Ionic, React Native, Firebase themes, templates and starters**
+[ Enappd | Ionic, React Native, Firebase themes, templates and starters 
 *Get the full source code for Ionic, React Native, Firebase mobile app templates and starters. Use free templates and…*store.enappd.com](https://store.enappd.com/)
 
 ## More resources for Flutter
