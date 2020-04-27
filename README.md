@@ -30,7 +30,7 @@ The detailed steps to install Flutter on your personal computer & getting starte
 ### Component Syntax
 
 The basic format of a DateTime Picker looks like the one below:
-```
+```dart
 FlatButton(
    onPressed : () {
       DatePicker.showDatePicker(context,
@@ -48,7 +48,7 @@ FlatButton(
 
 Adding additional capability to a Flutter app is easy using [Pub packages](https://pub.dev/flutter). In this tutorial, you introduce the [DateTime Picker plugin](https://pub.dev/packages/flutter_datetime_picker) by adding a single line to the pubspec.yaml file.
 
-```
+```dart
 name: DateTimePicker
 version: 1.0.0+1
 
@@ -72,14 +72,14 @@ flutter:
 ### Importing plugin to main.dart file
 
 Import  flutter_datetime_picker  dependency to your main.dart file by adding the following line at the starting of the file:
-```
+```dart
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 ```
 ### Putting Code in action
 
 Amend your main.dart file as per the following code:
 
-```
+```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
@@ -277,7 +277,7 @@ There are three functional variations of the plugin available as follows:
 
 There are various language options available to implement the plugin for international use. For changing the language of the component amend the following with preferred  LocaleType .
 
-```
+```dart
 locale: LocaleType.en
 ```
 
@@ -324,7 +324,7 @@ locale: LocaleType.en
 If you want to customize your own style of date time picker, there is a class called CommonPickerModel, every type of date time picker is extended from this class, you can refer to other picker models (eg. DatePickerModel), and write your custom one, then pass this model to showPicker method, so that your own date time picker will appear, it’s easy, and will perfectly meet your demand.
 
 How to customize your own picker model:
-```
+```dart
  class CustomPicker extends CommonPickerModel  {
       String digits(int value, int length) {
          return  '$value'.padLeft(length, "0");
