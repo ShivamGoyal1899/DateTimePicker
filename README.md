@@ -277,7 +277,7 @@ There are three functional variations of the plugin available as follows:
 
 There are various language options available to implement the plugin for international use. For changing the language of the component amend the following with preferred  LocaleType .
 
-```
+```dart
 locale: LocaleType.en
 ```
 
