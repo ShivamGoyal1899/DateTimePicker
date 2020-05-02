@@ -1,52 +1,71 @@
-# How to build a Flutter DateTime Picker in just 15 minutes
+Building a Flutter DateTime Picker in just 15 minutes
+=====================================================
 
-## Introduction
+Learn implementation of an iOS-style DateTime Picker in Flutter
+---------------------------------------------------------------
 
-With the [Flutter DateTime Picker plugin](https://pub.dev/packages/flutter_datetime_picker), you can add date & time pickers to your native application. The plugin’s interface is inspired by iOS Cupertino style menu.
+<img src="https://miro.medium.com/max/3600/1*Nk3kkThks62avT7Cl2tc9Q.png">
 
-### What you’ll build?
+Introduction
+============
 
-In this tutorial, you’ll build a mobile app featuring a DateTime Picker using the Flutter SDK. Your app will:
+With the [Flutter DateTime Picker plugin](https://pub.dev/packages/flutter_datetime_picker), you can add date & time pickers to your native application. The plugin's interface is inspired by the iOS Cupertino style menu.
 
-* Display separate Date & Time Pickers with a minimalistic interface
+What you'll build?
+------------------
 
-* Display the selected data as outputs to console
+In this tutorial, you'll build a mobile app featuring a DateTime Picker using the Flutter SDK. Your app will:
 
-![That’s how our DateTime Picker gonna look](https://cdn-images-1.medium.com/max/4096/1*Q90FHAfT2z5cImKivaL9BA.png)*That’s how our DateTime Picker gonna look*
+*   Display separate Date & Time Pickers with a minimalistic interface
+*   Display the selected data as outputs to console
+
+<img src="https://miro.medium.com/max/4096/1*Q90FHAfT2z5cImKivaL9BA.png">
+
+<p align="center">
+    That's how our DateTime Picker gonna look
+</p>
 
 This tutorial focuses on adding a DateTime Picker to a Flutter app. Non-relevant concepts and code blocks are glossed over and are provided for you to simply copy and paste.
 
-### Package Used | flutter_datetime_picker
-[ flutter_datetime_picker | Flutter Package ](https://pub.dev/packages/flutter_datetime_picker)
+* * *
 
-## Setting up Flutter on your machine
+Setting up Flutter on your machine
+==================================
 
 The detailed steps to install Flutter on your personal computer & getting started with Flutter is available at the following blog
 
-[ How to install Flutter on Mac & Windows ](https://medium.com/enappd/install-flutter-on-windows-and-mac-1fd1dde453ba)
+<a href="https://medium.com/enappd/install-flutter-on-windows-and-mac-1fd1dde453ba">
+    <p align="center">
+        How to install Flutter on Mac & Windows
+    </p>
+</a>
 
-## Coding the component
+Coding the component
+====================
 
-### Component Syntax
+Component Syntax
+----------------
 
 The basic format of a DateTime Picker looks like the one below:
+
 ```dart
 FlatButton(
-   onPressed : () {
-      DatePicker.showDatePicker(context,
-         showTitleActions : true,
-         minTime : DateTime(2000, 1, 1)
-         maxTime : DateTime(2022, 12, 31),
-         onChanged : (date) {print('change $date');},
-         onConfirm : (date) {print('confirm $date');},
-         currentTime : DateTime.now(), locale: LocaleType.en);},
-   child : Text('Show DateTime Picker',)
+    onPressed: () {
+        DatePicker.showDatePicker(context,
+          showTitleActions: true,
+          minTime: DateTime(2000, 1, 1)
+          maxTime: DateTime(2022, 12, 31),
+          onChanged: (date) {print('change $date');},
+          onConfirm: (date) {print('confirm $date');},
+          currentTime: DateTime.now(), locale: LocaleType.en);},
+    child: Text('Show DateTime Picker',)
 );
 ```
 
-### Adding DateTime Picker plugin as a dependency
+Adding DateTime Picker plugin as a dependency
+---------------------------------------------
 
-Adding additional capability to a Flutter app is easy using [Pub packages](https://pub.dev/flutter). In this tutorial, you introduce the [DateTime Picker plugin](https://pub.dev/packages/flutter_datetime_picker) by adding a single line to the pubspec.yaml file.
+Adding additional capability to a Flutter app is easy using [Pub packages](https://pub.dev/flutter). In this tutorial, you introduce the [DateTime Picker plugin](https://pub.dev/packages/flutter_datetime_picker) by adding a single line to the `pubspec.yaml` file.
 
 ```dart
 name: DateTimePicker
@@ -69,13 +88,17 @@ flutter:
   uses-material-design: true
 ```
 
-### Importing plugin to main.dart file
+Importing plugin to main.dart file
+----------------------------------
 
-Import  flutter_datetime_picker  dependency to your main.dart file by adding the following line at the starting of the file:
+Import **flutter\_datetime\_picker** dependency to your main.dart file by adding the following line at the starting of the file:
+
 ```dart
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 ```
-### Putting Code in action
+
+Putting Code in action
+----------------------
 
 Amend your main.dart file as per the following code:
 
@@ -252,154 +275,132 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 ```
 
-###  Building & running the application 
+Building & running the application
+----------------------------------
 
-* Connect your Emulator or physical Android device to test the application.
+*   Connect your Emulator or physical Android device to test the application.
+*   Click on Build & Run.
+*   And Boooom :boom:, your app is ready.  
+    The final build would look like the below illustration.
+<p align="center">
+    <img src="https://miro.medium.com/max/1200/1*yMUKAc0Z2tNcEV-eMI2UfA.gif">
+</p>
 
-* Click on Build & Run.
+<p align="center">
+    The final output of the implementation
+</p>
 
-* And Boooom, your app is ready.
-The final build would look like the below illustration.
+* * *
 
-![The final output of the implementation](https://cdn-images-1.medium.com/max/2000/1*yMUKAc0Z2tNcEV-eMI2UfA.gif)*The final output of the implementation*
-
-## Customization Options
+Customization Options
+=====================
 
 There are three functional variations of the plugin available as follows:
 
-* Solo DatePicker
+*   Solo DatePicker
+*   Solo TimePicker
+*   Dual DateTimePicker
 
-* Solo TimePicker
+Language Options
+----------------
 
-* Dual DateTimePicker
-
-### Language Options
-
-There are various language options available to implement the plugin for international use. For changing the language of the component amend the following with preferred  LocaleType .
+There are various language options available to implement the plugin for international use. For changing the language of the component amend the following with preferred **LocaleType**.
 
 ```dart
 locale: LocaleType.en
 ```
 
-* English(en)
+| English(en) | Russian(ru) |   Polish (pl)  |  Turkish(tr) |   Bengali(bn)  |  Dutch(nl)  |  Danish(da) |
+|:-----------:|:-----------:|:--------------:|:------------:|:--------------:|:-----------:|:-----------:|
+| Persian(fa) | Italian(it) | Portuguese(pt) | Japanese(jp) | Vietnamese(vi) | Spanish(es) | Chinese(zh) |
+|  Arabic(ar) |  German(de) |   French(fr)   |  Korean(ko)  |  Armenian(hy)  |             |             |
 
-* Persian(fa)
+Further Customisations
+----------------------
 
-* Chinese(zh)
+If you want to customize your own style of date time picker, there is a class called CommonPickerModel, every type of date time picker is extended from this class, you can refer to other picker models (eg. DatePickerModel), and write your custom one, then pass this model to showPicker method, so that your own date time picker will appear, it's easy, and will perfectly meet your demand.
 
-* Dutch(nl)
+**How to customize your own picker model:**
 
-* Russian(ru)
-
-* Italian(it)
-
-* French(fr)
-
-* Spanish(es)
-
-* Polish (pl)
-
-* Portuguese(pt)
-
-* Korean(ko)
-
-* Arabic(ar)
-
-* Turkish(tr)
-
-* Japanese(jp)
-
-* German(de)
-
-* Danish(da)
-
-* Bengali(bn)
-
-* Vietnamese(vi)
-
-* Armenian(hy)
-
-### Further Customisations
-
-If you want to customize your own style of date time picker, there is a class called CommonPickerModel, every type of date time picker is extended from this class, you can refer to other picker models (eg. DatePickerModel), and write your custom one, then pass this model to showPicker method, so that your own date time picker will appear, it’s easy, and will perfectly meet your demand.
-
-How to customize your own picker model:
 ```dart
- class CustomPicker extends CommonPickerModel  {
-      String digits(int value, int length) {
-         return  '$value'.padLeft(length, "0");
-      }
-
-    CustomPicker({DateTime currentTime, LocaleType locale}) :  super (locale: locale) {
-         this .currentTime = currentTime ?? DateTime.now();
-         this .setLeftIndex( this .currentTime.hour);
-         this .setMiddleIndex( this .currentTime.minute);
-         this .setRightIndex( this .currentTime.second);
-      }
-
-     @override 
-      String leftStringAtIndex(int index) {
-         if  (index >= 0 && index < 24) {
-           return this .digits(index, 2);
-        }  else  {
-           return  null;
-        }
-      }
-
-     @override 
-      String middleStringAtIndex(int index) {
-         if  (index >= 0 && index < 60) {
-           return this .digits(index, 2);
-        }  else  {
-           return  null;
-        }
-      }
-
-     @override 
-      String rightStringAtIndex(int index) {
-         if  (index >= 0 && index < 60) {
-           return  this.digits(index, 2);
-        }  else  {
-           return  null;
-        }
-      }
-
-     @override 
-      String leftDivider() {
-         return  "|";
-      }
-
-     @override 
-      String rightDivider() {
-         return  "|";
-      }
-
-     @override 
-      List<int> layoutProportions() {
-         return  [1, 2, 1];
-      }
-
-     @override 
-      DateTime finalTime() {
-         return  currentTime.isUtc
-            ? DateTime.utc(currentTime.year, currentTime.month, currentTime.day,
-                 this .currentLeftIndex(),  this .currentMiddleIndex(),  this .currentRightIndex())
-            : DateTime(currentTime.year, currentTime.month, currentTime.day, this.currentLeftIndex(),
-                 this .currentMiddleIndex(),  this .currentRightIndex());
-      }
+class CustomPicker extends CommonPickerModel {
+  String digits(int value, int length) {
+    return '$value'.padLeft(length, "0");
+  }
+CustomPicker({DateTime currentTime, LocaleType locale}) : super(locale: locale) {
+    this.currentTime = currentTime ?? DateTime.now();
+    this.setLeftIndex(this.currentTime.hour);
+    this.setMiddleIndex(this.currentTime.minute);
+    this.setRightIndex(this.currentTime.second);
+  }
+@override
+  String leftStringAtIndex(int index) {
+    if (index >= 0 && index < 24) {
+      return this.digits(index, 2);
+    } else {
+      return null;
     }
+  }
+@override
+  String middleStringAtIndex(int index) {
+    if (index >= 0 && index < 60) {
+      return this.digits(index, 2);
+    } else {
+      return null;
+    }
+  }
+@override
+  String rightStringAtIndex(int index) {
+    if (index >= 0 && index < 60) {
+      return this.digits(index, 2);
+    } else {
+      return null;
+    }
+  }
+@override
+  String leftDivider() {
+    return "|";
+  }
+@override
+  String rightDivider() {
+    return "|";
+  }
+@override
+  List<int> layoutProportions() {
+    return [1, 2, 1];
+  }
+@override
+  DateTime finalTime() {
+    return currentTime.isUtc
+        ? DateTime.utc(currentTime.year, currentTime.month, currentTime.day,
+            this.currentLeftIndex(), this.currentMiddleIndex(), this.currentRightIndex())
+        : DateTime(currentTime.year, currentTime.month, currentTime.day, this.currentLeftIndex(),
+            this.currentMiddleIndex(), this.currentRightIndex());
+  }
+}
 ```
 
-## More resources for Flutter
+* * *
 
-* [Getting Started with Flutter](https://medium.com/enappd/install-flutter-on-windows-and-mac-1fd1dde453ba)
+## :question: Queries / Bugs
+If you got any queries or found a bug, open an [Issue](https://github.com/ShivamGoyal1899/DateTimePicker/issues/new) or ping me over on [hi@itsshivam.com](mailto:hi@itsshivam.com)
 
-* [Implementing Facebook Auth in Flutter](https://medium.com/enappd/flutter-tutorial-for-native-app-building-and-facebook-authentication-978f0ee44976)
+## :memo: License
+Licensed under the [MIT License](./LICENSE).
 
-* [Flutter Documentation](https://flutter.dev/docs)
-
-* [Flutter Community](https://flutter.dev/community)
-
-* [Flutter YouTube Channel](https://www.youtube.com/flutterdev)
-
-* My GitHub Profile [@ShivamGoyal1899](https://github.com/ShivamGoyal1899)
+## :purple_heart: Thanks
+Thanks to all contributors and to sponsors for supporting the project.
+<p>
+  <a href="https://www.buymeacoffee.com/ShivamGoyal" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="30">
+  </a>
+  <a href="https://www.patreon.com/bePatron?u=31786845" target="_blank">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron!" height="30">
+  </a>
+  <a href="https://www.paypal.me/shivamgoyal1899" target="_blank">
+    <img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png" alt="Pay with PayPal!" height="30">
+  </a>
+  <a href="https://opencollective.com/shivamgoyal" target="_blank">
+    <img src="https://opencollective.com/webpack/donate/button@2x.png?color=blue" height="30">
+  </a>
+</p>
